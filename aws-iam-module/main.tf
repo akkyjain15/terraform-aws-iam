@@ -3,7 +3,7 @@ data "aws_iam_policy_document" "example" {
     actions   = ["s3:PutObject", "s3:GetObject", "s3:CreateBucket", "s3:DeleteObject", "s3:DeleteBucket"]
     resources = ["*"]
     effect = "Allow"
-    condition = {
+    condition {
       test     = "StringEquals"
       variable = "aws:RequestedRegion"
       values   = ["us-west-2"]
