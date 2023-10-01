@@ -12,7 +12,7 @@ data "aws_iam_policy_document" "example" {
 }
 
 resource "aws_iam_policy" "policy" {
-   name        = "s3-policy"
+   name        = var.policy_name
    description = "My s3 test policy"
    policy = data.aws_iam_policy_document.example.json
 }
@@ -31,7 +31,7 @@ data "aws_iam_policy_document" "assume_role" {
 }
 
 resource "aws_iam_role" "role" {
-  name               = "test-role"
+  name               = var.role_name
   assume_role_policy = data.aws_iam_policy_document.assume_role.json
 }
 
