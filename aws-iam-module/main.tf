@@ -4,9 +4,9 @@ data "aws_iam_policy_document" "example" {
     resources = ["*"]
     effect = "Allow"
     Condition = {
-      "StringEquals" = {
-        "aws:RequestedRegion" = "us-west-2"
-    }
+      test     = "StringEquals"
+      variable = "aws:RequestedRegion"
+      values   = ["us-west-2"]
     }
   }
 #   statement {
